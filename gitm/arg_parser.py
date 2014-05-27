@@ -1,5 +1,6 @@
 import argparse
 import sys
+from textwrap import dedent
 
 def split_command_from_args(argv):
     # argparse did not work because I wanted functionality such as:
@@ -37,9 +38,31 @@ def get_arg_parser():
 
 
 def display_help():
-    print('''
-    TODO help
-    ''')
+    print(dedent('''\
+    Usage: gitm [--help] <cmd> [<cmd arguments> ...] [-- <external cmd>]
+
+    options:
+        --help          display this help screen
+
+    cmd:
+        list            displays all registered git repos
+        status          display a condensed status of any modification across all git repos
+        branch          display the current branch across all git repos
+        discover <path> recursively searches the path for any new git repos to register
+
+    external cmd:
+        Runs the external shell command for each git repo.
+        Only one of cmd or external cmd can be specified at a single time.
+
+        Example:
+        gitm -- pwd
+
+            Running in: /home/alexcb/git/other_repo
+            /home/alexcb/git/other_repo
+            
+            Running in: /home/alexcb/git/gitm
+            /home/alexcb/git/gitm
+    '''))
 
 def display_help_if_required_and_quit(args):
     if args.help:
