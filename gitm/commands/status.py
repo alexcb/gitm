@@ -2,8 +2,8 @@ from collections import Counter
 
 from blessings import Terminal
 
-from git_utils import git_status, git_current_branch
-from dir_util import shrink_path_for_display
+from gitm.git_utils import git_status, git_current_branch
+from gitm.dir_util import shrink_path_for_display
 
 t = Terminal()
 

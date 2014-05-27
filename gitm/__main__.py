@@ -5,14 +5,14 @@ import subprocess
 
 from blessings import Terminal
 
-from commands.discover import process_discover_command
-from commands.list import process_list_command
-from commands.status import process_status_command
-from commands.branch import process_branch_command
+from gitm.commands.discover import process_discover_command
+from gitm.commands.list import process_list_command
+from gitm.commands.status import process_status_command
+from gitm.commands.branch import process_branch_command
 
-from arg_parser import get_args
-from user_conf import load_config_or_default, save_config
-from dir_util import current_directory
+from gitm.arg_parser import get_args
+from gitm.user_conf import load_config_or_default, save_config
+from gitm.dir_util import current_directory
 
 
 t = Terminal()

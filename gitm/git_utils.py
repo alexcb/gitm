@@ -1,6 +1,6 @@
 import subprocess
 
-from dir_util import current_directory
+from gitm.dir_util import current_directory
 
 status_codes = {
     '??': 'untracked',

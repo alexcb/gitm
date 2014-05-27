@@ -1,6 +1,6 @@
 from blessings import Terminal
 
-from dir_util import shrink_path_for_display
+from gitm.dir_util import shrink_path_for_display
 
 t = Terminal()
 

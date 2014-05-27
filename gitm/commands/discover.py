@@ -3,9 +3,9 @@ import itertools
 
 from blessings import Terminal
 
-from discovery import discover_git_repos
-from user_conf import save_config
-from dir_util import shrink_path_for_display
+from gitm.discovery import discover_git_repos
+from gitm.user_conf import save_config
+from gitm.dir_util import shrink_path_for_display
 
 t = Terminal()
 

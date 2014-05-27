@@ -1,9 +1,13 @@
-from git_utils import git_current_branch
-from dir_util import shrink_path_for_display
+from collections import Counter
+
 from blessings import Terminal
+
+from gitm.git_utils import git_current_branch
+from gitm.dir_util import shrink_path_for_display
+
+
 t = Terminal()
 
-from collections import Counter
 
 def process_branch_command(args, config, config_file):
     max_repo_len = max([len(x) for x in config['repos']])
