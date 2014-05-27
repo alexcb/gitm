@@ -4,6 +4,7 @@ from blessings import Terminal
 
 from gitm.git_utils import git_status, git_current_branch
 from gitm.dir_util import shrink_path_for_display
+from gitm.tag_util import get_repos
 
 t = Terminal()
 
@@ -11,7 +12,8 @@ t = Terminal()
 def process_status_command(args, config, config_file):
     max_repo_len = max([len(x) for x in config['repos']])
 
-    for repo in config['repos']:
+    repos = get_repos(config, args.tag)
+    for repo in repos:
         status = git_status(repo)
         current_branch = git_current_branch(repo)
 

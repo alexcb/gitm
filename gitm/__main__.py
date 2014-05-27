@@ -9,17 +9,20 @@ from gitm.commands.discover import process_discover_command
 from gitm.commands.list import process_list_command
 from gitm.commands.status import process_status_command
 from gitm.commands.branch import process_branch_command
+from gitm.commands.tag import process_tag_command
 
 from gitm.arg_parser import get_args
 from gitm.user_conf import load_config_or_default, save_config
 from gitm.dir_util import current_directory
+from gitm.tag_util import get_repos
+from gitm.dir_util import shrink_path_for_display
 
 
 t = Terminal()
 
 def process_execute_command(args, config):
-    for repo in config['repos']:
-        print('Running in: %s' % t.cyan(repo))
+    for repo in get_repos(config, args.tag):
+        print('Running in: %s' % t.cyan(shrink_path_for_display(repo)))
         with current_directory(repo):
             try:
                 subprocess.check_call(args.exec)
@@ -57,6 +60,7 @@ def main():
         'list': process_list_command,
         'status': process_status_command,
         'branch': process_branch_command,
+        'tag': process_tag_command,
         }
     command = args.cmd or 'list'
     try:

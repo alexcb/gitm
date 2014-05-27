@@ -24,6 +24,7 @@ def add_expected_fields_to_config(config):
         raise ValueError('Config must be a dictionary, got %s' % type(config))
 
     for key, default in (
+            ('tags',  {}),
             ('repos', []),
             ):
         try:

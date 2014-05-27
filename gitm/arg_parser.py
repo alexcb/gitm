@@ -32,7 +32,7 @@ def get_arg_parser():
     parser.add_argument('cmd', nargs='?')
     parser.add_argument('cmd_args', nargs='*')
     #parser.add_argument('dir', nargs='?')
-    #parser.add_argument('-g', '--group')
+    parser.add_argument('-t', '--tag')
     parser.add_argument('-h', '--help', action='store_true', default=False)
     return parser
 
@@ -45,6 +45,8 @@ def display_help():
         --help          display this help screen
 
     cmd:
+        group [<name>]  display (or set if name is given) the default group name
+        edit            interactively edit which repos are part of which groups
         list            displays all registered git repos
         status          display a condensed status of any modification across all git repos
         branch          display the current branch across all git repos
